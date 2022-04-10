@@ -44,6 +44,7 @@ const Model = ({ model, img_url, text, handleScroll }: ModelProps) => {
           alt={model}
           layout="fill"
           objectFit="cover"
+          className={style.image}
         />
       </figure>
       <motion.div

@@ -57,7 +57,7 @@
 @include tablet {
   .navbar {
     .navbar_container {
-      padding-inline: 1.25rem;
+      padding-inline: 1rem;
       .models {
         display: none;
       }
@@ -69,16 +69,4 @@
       }
     }
   }
-}
-
-@include mobile {
-  // .navbar {
-  //   .navbar_container {
-  //     padding-inline: 1.25rem;
-  //     .logo {
-  //       width: 5rem;
-  //       height: 1rem;
-  //     }
-  //   }
-  // }
 }

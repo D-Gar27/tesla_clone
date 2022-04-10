@@ -18,13 +18,15 @@
   backdrop-filter: blur(0.2rem);
   display: none;
   .placeholder {
-    width: 100%;
+    flex: 1;
+    min-width: 3rem;
     height: 100%;
   }
   .sidebar {
     color: #393c41;
     height: 100%;
-    width: 27.5rem;
+    width: 100%;
+    max-width: 27.5rem;
     background-color: $white;
     transform: translateX(100%);
     opacity: 0.5;
@@ -121,3 +123,14 @@
     display: flex;
   }
 }
+
+// @include mobile {
+//   .sidebar_container {
+//     .placeholder {
+//       flex: 1;
+//     }
+//     .sidebar {
+//       flex: 2.5;
+//     }
+//   }
+// }
