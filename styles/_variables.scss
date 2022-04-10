@@ -1,0 +1,30 @@
+$black: #171a20;
+$white: #ffffff;
+$gray: #f4f4f4;
+$dark_gray: #5c5e62;
+
+.max_container {
+  width: 100%;
+  padding-inline: 3rem;
+  margin-inline: auto;
+}
+
+@mixin flex($x, $y, $column: false) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+  @if ($column) {
+    flex-direction: column;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 1220px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}

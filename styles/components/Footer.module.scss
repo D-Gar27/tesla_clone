@@ -1,0 +1,47 @@
+@import '../variables';
+
+.footer_container {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  min-height: 4rem;
+  background-color: transparent;
+  @include flex(center, center);
+  .footer_links {
+    @include flex(center, center);
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    color: $dark_gray;
+    li {
+      font-size: 0.75rem;
+      color: $dark_gray;
+      font-weight: 600;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .footer_container {
+    position: relative;
+    padding-inline: 1rem;
+    padding-block: 5rem;
+  }
+}
+
+@include mobile {
+  .footer_container {
+    padding-block: 3rem;
+    margin-top: -3rem;
+    .footer_links {
+      @include flex(center, center, $column: true);
+      gap: 1rem;
+      .remove {
+        display: none;
+      }
+    }
+  }
+}

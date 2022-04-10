@@ -1,0 +1,123 @@
+@import '../variables';
+
+.sidebar_container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: ease-in 200ms opacity;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba($color: $black, $alpha: 0.5);
+  backdrop-filter: blur(0.2rem);
+  display: none;
+  .placeholder {
+    width: 100%;
+    height: 100%;
+  }
+  .sidebar {
+    color: #393c41;
+    height: 100%;
+    width: 27.5rem;
+    background-color: $white;
+    transform: translateX(100%);
+    opacity: 0.5;
+    transition: ease 500ms opacity, ease 500ms transform;
+    transition-delay: 100ms;
+    overflow-y: scroll;
+    padding-bottom: 3.5rem;
+    .close_div {
+      width: 100%;
+      background-color: $white;
+      position: sticky;
+      padding-block: 0.25rem;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      .close_btn {
+        width: 2.5rem;
+        aspect-ratio: 1 / 1;
+        @include flex(center, center);
+        border-radius: 100%;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: 1rem;
+        margin-block: 1rem;
+        font-size: 1.1rem;
+        transition: 200ms ease-in background-color;
+        &:hover {
+          background-color: rgba($color: $black, $alpha: 0.05);
+        }
+      }
+    }
+    .sidebar_links {
+      padding-inline: 2rem;
+      @include flex(center, flex-start, $column: true);
+      gap: 0.5rem;
+      li {
+        width: 100%;
+        font-size: 0.875rem;
+        font-weight: bold;
+        padding-left: 0.75rem;
+        padding-right: 0.5rem;
+        padding-block: 0.5rem;
+        border-radius: 0.75rem;
+        transition: 200ms ease-in background-color;
+        cursor: pointer;
+        @include flex(space-between, center);
+        .chevron {
+          font-size: 1.1rem;
+        }
+        &:hover {
+          background-color: rgba($color: $black, $alpha: 0.05);
+        }
+      }
+    }
+    .language_container {
+      width: 100%;
+      margin-top: 1rem;
+      padding-left: 2.5rem;
+      @include flex(flex-start, flex-start);
+      gap: 0.5rem;
+      .globe_icon {
+        padding-top: 0.15rem;
+        font-size: 1.5rem;
+        color: #393c41;
+      }
+      div {
+        .country {
+          font-size: 0.875rem;
+          font-weight: bold;
+          color: $black;
+        }
+        .language {
+          font-size: 0.75rem;
+          margin-top: 0.3rem;
+        }
+      }
+    }
+  }
+  .sidebar_clicked {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.clicked {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+@include tablet {
+  .sidebar_container {
+    display: flex;
+  }
+}

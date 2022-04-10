@@ -1,0 +1,135 @@
+@import '../variables';
+
+.model_container {
+  scroll-snap-align: start;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  @include flex(space-around, center, $column: true);
+  gap: 10rem;
+  .model_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+  div {
+    position: relative;
+    z-index: 1;
+  }
+  .model_text {
+    @include flex(center, center, $column: true);
+    gap: 0.5rem;
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 0.875rem;
+      a {
+        border-bottom: solid 1.5px $black;
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 105%;
+          width: 100%;
+          height: 1.2px;
+          background-color: $black;
+          transition: height 300ms ease;
+        }
+        &:hover::after {
+          height: 2.75px;
+        }
+      }
+    }
+  }
+  .btns_container {
+    @include flex(center, center);
+    width: 100%;
+    gap: 2rem;
+    button {
+      width: 100%;
+      height: 2.5rem;
+      max-width: 16rem;
+      border-radius: 2rem;
+      border: none;
+      font-weight: bold;
+      font-size: 0.75rem;
+      letter-spacing: 0.025rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .custom_btn {
+      background-color: #171a20cc;
+      color: $white;
+    }
+    .existing_btn {
+      background-color: #f4f4f4a6;
+      color: #393f41;
+    }
+    .accessories_btn {
+      background-color: #171a20;
+      color: $white;
+    }
+  }
+  .chevron {
+    cursor: pointer;
+    position: absolute;
+    bottom: 1.5rem;
+    .down_chevron {
+      font-size: 1.5rem;
+      color: $black;
+      animation: chevron infinite 3s;
+      animation-delay: 1s;
+    }
+  }
+}
+
+@keyframes chevron {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.4rem);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  68% {
+    transform: translateY(0.2rem);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@include mobile {
+  .model_container {
+    .model_text {
+      @include flex(center, center, $column: true);
+      gap: 0.5rem;
+      margin-top: 2rem;
+      h1 {
+        font-size: 2.25rem;
+      }
+    }
+    .btns_container {
+      @include flex(center, center, $column: true);
+      gap: 1rem;
+      width: 100%;
+      button {
+        max-width: 90%;
+      }
+    }
+  }
+}
